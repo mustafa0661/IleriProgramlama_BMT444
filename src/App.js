@@ -1,4 +1,5 @@
 import './App.css';
+import Fonksiyonel from './components/Fonksiyonel';
 import Islem from './components/Islem';
 import Listele from './components/Listele';
 import User from './components/User';
@@ -12,6 +13,8 @@ function App() {
       <User></User>
       <br/>
       <Listele></Listele>
+      <br/>
+      <Fonksiyonel></Fonksiyonel>
     </div>
   );
 }
