@@ -1,24 +1,33 @@
 import React, { Component } from 'react'
 import PropKullanimi from './PropKullanimi'
+import PropKullanimiConsumer from './context';
 
 export default class KullaniciY extends Component {
   render() {
-    const {kullaniciY} = this.props;
-    return (
-      <div>
+    return(
+        <PropKullanimiConsumer>
         {
-            kullaniciY.map(propKullanimi => {
+            value => {
+                const {kullaniciY} = value;
                 return(
-                    <PropKullanimi
-                        key = {propKullanimi.id}
-                        bir = {propKullanimi.bir}
-                        iki = {propKullanimi.iki}
-                        uc = {propKullanimi.uc}
-                    />
+                    <div>
+                        {
+                            kullaniciY.map(propKullanimi => {
+                                return(
+                                    <PropKullanimi
+                                        key = {propKullanimi.id}
+                                        bir = {propKullanimi.bir}
+                                        iki = {propKullanimi.iki}
+                                        uc = {propKullanimi.uc}
+                                    />
+                                )
+                            })
+                        }
+                    </div>
                 )
-            })
+            }
         }
-      </div>
+    </PropKullanimiConsumer>
     )
   }
 }
