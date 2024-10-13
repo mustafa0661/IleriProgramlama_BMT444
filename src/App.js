@@ -10,6 +10,8 @@ export default class App extends Component {
     return (
       <div className='container'>
         <UyeEkle/>
+        <hr/>
+        <KullaniciY/>
       </div>
     )
   }

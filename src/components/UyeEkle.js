@@ -15,7 +15,10 @@ const Box = posed.div({
 });
 export default class UyeEkle extends Component {
     state = {
-        visible : true
+        visible : true,
+        ad : "",
+        soyad : "",
+        yas : "" 
     }
     gorunurlukDegistir = (e) =>{
         this.setState(
@@ -24,8 +27,15 @@ export default class UyeEkle extends Component {
             }
         )
     }
+    degerDegistir = (e) =>{
+        this.setState(
+            {
+                [e.target.name] : e.target.value
+            }
+        )
+    }
   render() {
-    const {visible} = this.state;
+    const {visible, ad, soyad, yas} = this.state;
     return (
       <div className='col-md-8 mb-3'>
         <button onClick={this.gorunurlukDegistir} className='btn btn-danger mb-3'>
@@ -45,6 +55,8 @@ export default class UyeEkle extends Component {
                             id='idAd'
                             placeholder='Adinizi Giriniz'
                             className = "form-control"
+                            value={ad}
+                            onChange={this.degerDegistir}
                         />
                     </div>
                     <div className='form-group'>
@@ -54,6 +66,8 @@ export default class UyeEkle extends Component {
                             id='idSoyad'
                             placeholder='Soyadınızı Giriniz'
                             className = "form-control"
+                            value={soyad}
+                            onChange={this.degerDegistir}
                         />
                     </div>
                     <div className='form-group'>
@@ -63,6 +77,8 @@ export default class UyeEkle extends Component {
                             id='idYas'
                             placeholder='Yaşınızı Giriniz'
                             className = "form-control"
+                            value={yas}
+                            onChange={this.degerDegistir}
                         />
                     </div>
                     <button className='btn btn-primary' type='submit'>

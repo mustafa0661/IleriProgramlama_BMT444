@@ -34,7 +34,7 @@ export default class PropKullanimi extends Component {
                 const {dispatch} = value;
                 return (
                     <div className='col-md-7 mb-3'>
-                      <div className='card'>
+                      <div className='card' style={isVisible ? {backgroundColor: "#bacf91", color:"white"} : null}>
                           <div className='card-header d-flex justify-content-between'>
                               <h2 className='d-inline' onClick={this.ilkEvent.bind(this)}>{bir}</h2>
                               <i onClick={this.ilkSil.bind(this,dispatch)} className='far fa-trash-alt' style={{cursor:'pointer'}}></i>
