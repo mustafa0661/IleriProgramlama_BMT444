@@ -1,28 +1,39 @@
+import React, { Component } from 'react'
+import Fonksiyonel from "./components/Fonksiyonel";
+import KullaniciY from './components/KullaniciY';
 import './App.css';
-import Fonksiyonel from './components/Fonksiyonel';
-import Islem from './components/Islem';
-import Listele from './components/Listele';
-import PropKullanimi from './components/PropKullanimi';
-import User from './components/User';
 
-function App() {
-  return (
-    <div className="App">
-      <hr/>
-      <Fonksiyonel/>
-      <PropKullanimi
-        bir="Frontend Kitap Listesi"
-        iki="React"
-        uc="Angular"
-      />
-      <hr/>
-      <PropKullanimi
-        bir="Backend Kitap Listesi"
-        iki="Asp.Net Core"
-        uc="Spring Boot"
-      />
-    </div>
-  );
+export default class App extends Component {
+  state = {
+    kullaniciY : [
+      {
+        id: 1,
+        bir: "Frontend Kitap Listesi",
+        iki: "React",
+        uc: "Angular"
+      },
+      {
+        id: 2,
+        bir: "Backend Kitap Listesi",
+        iki: "Spring Boot",
+        uc: "Asp.Net Core"
+      },
+      {
+        id: 3,
+        bir: "Siber Kitap Listesi",
+        iki: "Siber 1",
+        uc: "Siber 2"
+      }
+    ]
+  }
+  render() {
+    return (
+      <div className='container'>
+        <hr/>
+        <Fonksiyonel baslik="Merhaba Türkiye"/>
+        <hr/>
+        <KullaniciY kullaniciY={this.state.kullaniciY}/>
+      </div>
+    )
+  }
 }
-
-export default App;
