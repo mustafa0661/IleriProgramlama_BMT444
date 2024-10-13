@@ -9,6 +9,11 @@ const reducer = (state, action) => {
                 kullaniciY : state.kullaniciY.filter(PropKullanimi => 
                     action.payload !== PropKullanimi.id)
             }
+            case "UYE_EKLE":
+                return{
+                    ...state,
+                    kullaniciY :[...state.kullaniciY,action.payload]
+                }
             default:
                 return state
     }
@@ -17,19 +22,19 @@ export class PropKullanimiprovider extends Component {
     state = {
         kullaniciY : [
           {
-            id: 1,
+            id: "1",
             bir: "Frontend Kitap Listesi",
             iki: "React",
             uc: "Angular"
           },
           {
-            id: 2,
+            id: "2",
             bir: "Backend Kitap Listesi",
             iki: "Spring Boot",
             uc: "Asp.Net Core"
           },
           {
-            id: 3,
+            id: "3",
             bir: "Siber Kitap Listesi",
             iki: "Siber 1",
             uc: "Siber 2"

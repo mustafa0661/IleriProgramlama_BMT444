@@ -57,7 +57,8 @@ export default class PropKullanimi extends Component {
 PropKullanimi.propTypes={
     bir : PropTypes.string.isRequired,
     iki : PropTypes.string.isRequired,
-    uc : PropTypes.string.isRequired
+    uc : PropTypes.string.isRequired,
+    id : PropTypes.string.isRequired
 }
 PropKullanimi.defaultProps={
     bir : "String değer gir lütfen!!!",
