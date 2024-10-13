@@ -1,5 +1,18 @@
 import React, { Component } from 'react'
 const PropKullanimiContext = React.createContext();
+
+const reducer = (state, action) => {
+    switch(action.type){
+        case "SIL":
+            return{
+                ...state,
+                kullaniciY : state.kullaniciY.filter(PropKullanimi => 
+                    action.payload !== PropKullanimi.id)
+            }
+            default:
+                return state
+    }
+}
 export class PropKullanimiprovider extends Component {
     state = {
         kullaniciY : [
@@ -21,7 +34,10 @@ export class PropKullanimiprovider extends Component {
             iki: "Siber 1",
             uc: "Siber 2"
           }
-        ]
+        ],
+        dispatch : action => {
+            this.setState(state => reducer(state,action))
+        }
       }
   render() {
     return (

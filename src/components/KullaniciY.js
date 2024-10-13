@@ -15,7 +15,7 @@ export default class KullaniciY extends Component {
                             kullaniciY.map(propKullanimi => {
                                 return(
                                     <PropKullanimi
-                                        key = {propKullanimi.id}
+                                        id = {propKullanimi.id}
                                         bir = {propKullanimi.bir}
                                         iki = {propKullanimi.iki}
                                         uc = {propKullanimi.uc}
