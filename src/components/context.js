@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-const PropKullanimiContext = React.createContext();
+import axios from 'axios';
 
+const PropKullanimiContext = React.createContext();
 const reducer = (state, action) => {
     switch(action.type){
         case "SIL":
@@ -20,29 +21,16 @@ const reducer = (state, action) => {
 }
 export class PropKullanimiprovider extends Component {
     state = {
-        kullaniciY : [
-          {
-            id: "1",
-            bir: "Frontend Kitap Listesi",
-            iki: "React",
-            uc: "Angular"
-          },
-          {
-            id: "2",
-            bir: "Backend Kitap Listesi",
-            iki: "Spring Boot",
-            uc: "Asp.Net Core"
-          },
-          {
-            id: "3",
-            bir: "Siber Kitap Listesi",
-            iki: "Siber 1",
-            uc: "Siber 2"
-          }
-        ],
+        kullaniciY : [],
         dispatch : action => {
             this.setState(state => reducer(state,action))
         }
+      }
+      componentDidMount = async () => {
+        const cevap = await axios.get("http://localhost:3000/uyeler");
+        this.setState({
+            kullaniciY : cevap.data
+        })
       }
   render() {
     return (
