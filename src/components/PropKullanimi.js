@@ -24,6 +24,9 @@ export default class PropKullanimi extends Component {
             console.log(id);
             dispatch({type : "SIL", payload : id});
         }
+    componentWillUnmount(){
+        console.log("Unmount işlemi yapıldı");
+    }
   render() {
 
     const {bir, iki, uc} = this.props;
